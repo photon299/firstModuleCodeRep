@@ -267,37 +267,133 @@
 // };
 // eighthTask();
 
+
 //* Triangle
+// let result = "";
+// let lines = 6;
 
-let item = " ";
-let star = "*";
-let lines = 6;
-let rowCounter = 6;
-let itemResult = "";
-let starResult = "";
-let res = "";
-let mainResult = "";
-let box = "";
+// let item = " ";
+// let star = "*";
+// let rowCounter = 6;
+// let itemResult = "";
+// let starResult = "";
+// let box = "";
 
-for (let i = 0; i < lines; i++) {
-    for (let j = 0; j <= rowCounter; j++) {
-        itemResult += item;
-        if (itemResult.length == rowCounter) {
-            mainResult += itemResult;
+// for (let i = 0; i < lines; i++) {
+//     for (let j = 0; j <= rowCounter; j++) {
+//         itemResult += item;
+//         if (itemResult.length == rowCounter) {
+//             result += itemResult;
+//             if (i == 0) {
+//                 result += star;
+//                 console.log(result);
+//                 result = "";
+//                 itemResult = "";
+//                 rowCounter--;
+//                 continue;
+//             }
+//             box += star + star;
+//             result += star + box;
+//             console.log(result);
+//             result = "";
+//             itemResult = "";
+//             rowCounter--;
+//         }
+//     }
+// }
+
+
+//? 25. Функции, стрелочные функции (ES6)
+// const showFirstMessage = (text) => {
+//       console.log(text);
+// };
+// showFirstMessage("Heloo");
+
+// const calc = (a, b) => {
+//     return a + b;
+// };
+
+// console.log(calc(4, 6));
+// console.log(calc(1, 2));
+// console.log(calc(5, -19));
+
+// const ret = () => {
+//     let num = 50;
+//     return num;
+// };
+// const anotherNum = ret();
+// console.log(anotherNum);
+
+// const logger = function() {
+//     console.log("Hellog")
+// };
+
+// const calc = (a, b) =>  a + b;
+// console.log(calc(3, 5));
+
+//? 26. (д) Еще раз про аргументы функций
+// const usdCurr = 28;
+// const eurCurr = 32;
+
+// const convert = (curr, ammount) => {
+//     console.log(curr * ammount);
+// };
+
+// convert(usdCurr, 500);
+// convert(eurCurr, 500);
+
+
+//? 27. (д) Про важность return
+// const usdCurr = 28;
+// const discount = 0.9;
+
+// const convert = (curr, ammount) => {
+//     return curr * ammount;
+// };
+
+// const promotion = (result) => {
+//     console.log(result * discount);
+// };
+
+// const res = convert(usdCurr, 500);
+// promotion(res);
+
+// const test = () => {
+//     for (let i = 0; i < 5; i++) {
+//         console.log(i);
+//         if (i === 3) { return; } 
+//     }
+//     console.log("Hey");
+// };
+// test();
+
+// function doNothing() {}
+// console.log(doNothing() === undefined);
+
+//* Задание на работу с функциями
+
+const sayHello = (name) => {
+    return "Привет, " + name + "!";
+};
+
+const returnNeighboringNumbers = (number) => {
+    return [number - 1, number, number + 1];
+};
+
+const getMathResult = (num, counter) => {
+    if (typeof counter != "number" || counter <= 0) {
+        return num;
+    } else {
+        let result = "";
+        let numClone = num;
+        for (let i = 0; i < counter; i++) {
             if (i == 0) {
-                mainResult += star;
-                console.log(mainResult);
-                mainResult = "";
-                itemResult = "";
-                rowCounter--;
+                result += numClone;
                 continue;
             }
-            box += star + star;
-            mainResult += star + box;
-            console.log(mainResult);
-            mainResult = "";
-            itemResult = "";
-            rowCounter--;
+            numClone += num;
+            result += "---" + numClone;
         }
+        return result;
     }
-}
+};
