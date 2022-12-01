@@ -371,29 +371,147 @@
 // console.log(doNothing() === undefined);
 
 //* Задание на работу с функциями
+// const sayHello = (name) => {
+//     return "Привет, " + name + "!";
+// };
 
-const sayHello = (name) => {
-    return "Привет, " + name + "!";
-};
+// const returnNeighboringNumbers = (number) => {
+//     return [number - 1, number, number + 1];
+// };
 
-const returnNeighboringNumbers = (number) => {
-    return [number - 1, number, number + 1];
-};
+// const getMathResult = (num, counter) => {
+//     if (typeof counter != "number" || counter <= 0) {
+//         return num;
+//     } else {
+//         let result = "";
+//         let numClone = num;
+//         for (let i = 0; i < counter; i++) {
+//             if (i == 0) {
+//                 result += numClone;
+//                 continue;
+//             }
+//             numClone += num;
+//             result += "---" + numClone;
+//         }
+//         return result;
+//     }
+// };
 
-const getMathResult = (num, counter) => {
-    if (typeof counter != "number" || counter <= 0) {
-        return num;
+
+//? 28. Методы и свойства строк и чисел
+// const str = "test";
+// const arr = [1, 2, 3];
+// let strUp = str.toUpperCase();
+// console.log(strUp);
+
+// const fruit = "Some fruit";
+// console.log(fruit.indexOf("fruit"));
+
+// const logg = "Hello world!";
+// console.log(logg.slice(6, 11));
+// console.log(logg.substring(6, 11));
+// console.log(logg.substr(6, 5));
+
+// const num = 12.2;
+// console.log(Math.round(num));
+
+// const test = "12.2px";
+// console.log(parseFloat(test));
+
+
+//* (*) Продвинутые задания на использование функций
+// V = a*a*a
+// SA = 6а2
+const calculateVolumeAndArea = (a) => {
+    if (a % 1 === 0 && typeof a == "number" && a > 0) {
+        console.log(`Объем куба: ${a * a * a}, площадь всей поверхности: ${6 * (a * a)}`);
     } else {
-        let result = "";
-        let numClone = num;
-        for (let i = 0; i < counter; i++) {
-            if (i == 0) {
-                result += numClone;
-                continue;
+        console.log("При вычислении произошла ошибка");
+    }
+};
+// calculateVolumeAndArea();
+
+const getCoupeNumber = (num) => {
+    if (typeof num !== "number" || num < 0 || num % 1 !== 0) {
+        console.log("Ошибка. Проверьте правильность введенного номера места");
+    } else if (num === 0 || num > 36) {
+        console.log("Таких мест в вагоне не существует");
+    } else {
+        const arr = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16],
+            [17, 18, 19, 20],
+            [21, 22, 23, 24],
+            [25, 26, 27, 28],
+            [29, 30, 31, 32],
+            [33, 34, 35, 36],
+        ];
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 4; j++) {
+                if (arr[i][j] === num) {
+                    console.log(i + 1);
+                    break;
+                }
             }
-            numClone += num;
-            result += "---" + numClone;
+        }
+    }
+};
+// getCoupeNumber("dd");
+
+const getTimeFromMinutes = (min) => {
+    if (typeof min !== "number" || min % 1 !== 0 || min < 0) {
+        console.log("Ошибка, проверьте данные");
+    } else  {
+        let hours = parseInt(min / 60);
+        let minutes = min % 60;
+        if (hours === 0 && minutes === 0) {
+            return "Это 0 часов и 0 минут";
+        } else if (hours === 1) {
+            return `Это ${hours} час и ${minutes} минут`;
+        } else if (hours <= 4) {
+            return `Это ${hours} часа и ${minutes} минут`;
+        } else if (hours <= 10) {
+            return `Это ${hours} часов и ${minutes} минут`;
+        }
+    }
+};
+// console.log(getTimeFromMinutes(6));
+
+const findMaxNumber = (a, b, c, d) => {
+    const arr = [a, b, c, d];
+    let max = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] !== "number") {
+            return 0;
+        } else if (max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    return max;
+};
+// console.log(findMaxNumber(44, 2, 313, 4.6));
+
+
+//? (**) Задача с собеседований на числа Фибоначчи
+const fib = (num) => {
+    if (typeof num !== "number" || num % 1 !== 0 || num < 0 || num === 0) {
+        return "";
+    } else if (num === 1) {
+        return "0";
+    } else {
+        let a = 0;
+        let b = 1;
+        let nextNum;
+        let result = "0 1"; 
+        for (let i = 0; i < num - 2; i++) {
+            nextNum = a + b;
+            result += ` ${nextNum}`;
+            a = b;
+            b = nextNum;
         }
         return result;
     }
 };
+console.log(fib(7));
