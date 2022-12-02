@@ -820,22 +820,22 @@ const availableCurr = (arr, missingCurr) => {
 // console.log(john.armor);
 // john.sayHello();
 
-const soldier = {
-    health: 400,
-    armor: 100,
-    sayHello: () => {
-        console.log("Hello");
-    }
-};
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: () => {
+//         console.log("Hello");
+//     }
+// };
 
-const john = Object.create(soldier, {
-    weapons: {
-        knife: true,
-        "AK-47": true,
-        RPG: false,
-    }
-});
-console.log(john.weapons);
+// const john = Object.create(soldier, {
+//     weapons: {
+//         knife: true,
+//         "AK-47": true,
+//         RPG: false,
+//     }
+// });
+// console.log(john.weapons);
 
 // const john = {
 //     health: 100
@@ -843,3 +843,40 @@ console.log(john.weapons);
 
 // Object.setPrototypeOf(john, soldier);
 // john.sayHello();
+
+
+//? Продвинутая задача на работу с объектами и массивами
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5,
+        },
+        {
+            width: 15,
+            length: 7,
+        },
+        {
+            width: 8,
+            length: 10,
+        },
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000,
+};
+
+const isBudgetEnough = (data) => {
+    let totalArea = 0;
+    for (let item of data.shops) {
+        let keysArr = Object.keys(item);
+        for(let i = 0; i < keysArr.length; i++) {
+            totalArea += item[`${keysArr[i]}`] * item[`${keysArr[i + 1]}`];
+            i++;
+        }
+    }
+    //                 totalVolume 
+    let price = (totalArea * data.height) * data.moneyPer1m3; 
+    return (data.budget >= price) ? "Бюджета достаточно" : "Бюджета недостаточно";
+};
+console.log(isBudgetEnough(shoppingMallData));
