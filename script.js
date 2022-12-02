@@ -514,4 +514,332 @@ const fib = (num) => {
         return result;
     }
 };
-console.log(fib(7));
+// console.log(fib(7));
+
+
+
+//? 30. Метод str.trim()
+// let str = "    skskdk kdkssd  ";
+// let newStr = str.trim();
+// console.log(newStr);
+
+
+//? 31. Callback- функции
+// const first = () => {
+//     setTimeout(() => {
+//         console.log(1);
+//     }, 500);
+// };
+
+// const second = () => {
+//     console.log(2);
+// };
+// first();
+// second();
+
+// const done = () => {
+//     console.log("I've completed this lesson");
+// };
+
+// const learnJS = (lang, callback) => {
+//     console.log(`I'm learning ${lang}`);
+//     callback();
+// };
+
+// learnJS("JavaScript", done);
+
+
+//?32. Объекты, деструктуризация объектов (ES6)
+// const options = {
+//     name: "test",
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: "black",
+//         bg: "red",
+//     },
+//     makeTest: () => {
+//         console.log("Test");
+//     },
+// };
+
+// options.makeTest();
+
+// console.log(Object.keys(options).length);
+
+// console.log(options.name);
+// delete options.name;
+// console.log(options);
+
+// let counter = 0;
+// for (let key in options) {
+//     if (typeof options[key] === "object") {
+//         for (let i in options[key]) {
+//         console.log(`Свойство ${i}, значение ${options[key][i]}`);
+//         }
+//     } else {
+//         console.log(`Свойство ${key}, значение ${options[key]}`);
+//     }
+//     counter++;
+// }
+// console.log(counter);
+
+//* Деструктуризация
+// const options = {
+//     Name: "test",
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: "black",
+//         bg: "red",
+//     },
+//     makeTest: () => {
+//         console.log("Test");
+//     },
+// };
+
+// const {Name, ...rest} = options;
+
+// console.log(Name);
+// console.log(rest);
+
+
+//? 33. Массивы и псевдомассивы
+// const numbers = [1, 2, 3, 6, 8];
+
+// arr.pop();
+// arr.push(10);
+// console.log(arr);
+
+// for (let item of arr) {
+//     console.log(item);
+// }
+
+// numbers.forEach((item, index, array) => {
+//     console.log(`${index}: ${item} in the array ${array}`);
+// });
+
+// const evenNumbers = numbers.filter(item => item % 2 === 0);
+// console.log(evenNumbers);
+
+// const str = prompt("", "");
+// const products = str.split(", ");
+// products.sort();
+// console.log(products.join("; "));
+
+// const numbers = [4, -43, 87.4, 0.23, -3];
+// numbers.sort((a, b) => a - b);
+// console.log(numbers);
+
+
+//? 35. Передача по ссылке или по значению, Spread оператор (ES6-ES9)
+// let a = 5,
+//     b = a;
+// b += 5;
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//     a: 5,
+//     b: 1,
+// };
+// const copy = obj;
+// copy.a = 10;
+// console.log(copy);
+// console.log(obj);
+
+
+// const copy = (mainObj) => {
+//     let objCopy = {};
+
+//     for (let key in mainObj) {
+//         objCopy[key] = mainObj[key];
+        
+//     }
+//     return objCopy;
+// };
+
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4,
+//     }
+// };
+
+// const newNumbers = copy(numbers);
+// newNumbers.a = 10;
+// console.log(newNumbers);
+
+// const add = {
+//     d: 17,
+//     e: 20,
+// };
+// const clone = Object.assign({}, add);
+// clone.d = 20;
+// console.log(add);
+// console.log(clone);
+
+// const oldArray = ["a", "b", "c"];
+// const newArray = oldArray.slice();
+// newArray[1] = "sss";
+// console.log(newArray);
+// console.log(oldArray);
+//* spread
+// const video = ["youtube", "vimeo", "rutube"],
+//       blogs = ["wordpress", "livejournal", "blogger"],
+//       internet = [...video, ...blogs, "vk", "facebook"];
+// console.log(internet);
+
+// const log = (a, b, c) => {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// };
+// const num = [2, 5, 7];
+// log(...num);
+
+// const array = ["a", "b"];
+// const newArray = [...array];
+// console.log(newArray);
+
+// const q = {
+//     one: 1,
+//     two: 2,
+// };
+// const newObj = {...q};
+// console.log(newObj);
+
+
+//? Задачи на работу с объектами
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%',
+            java: '50%',
+            "c++": '83%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: (obj) => {
+        return `Мне ${obj.age} и я владею языками ${obj.skills.languages.join(" ").toUpperCase()}`;
+    },
+};
+// console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+const showExperience = (plan) => {
+    const {exp} = plan.skills;
+    return exp;
+};
+// console.log(showExperience(personalPlanPeter));
+
+const showProgrammingLangs = (plan) => {
+    const {programmingLangs} = plan.skills;
+    let result = "";
+    for (let key in programmingLangs) {
+        result += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+    }
+    return result;
+};
+// console.log(showProgrammingLangs(personalPlanPeter));
+
+//? Задачи на работу с массивами
+const family = ["Peter", "Ann", "Alex", "Linda"];
+const showFamily = (arr) => {
+    return (arr.length === 0) ? "Семья пуста" : "Семья состоит из: " + arr.join(" ");
+};
+// console.log(showFamily(family));
+
+const favoriteCities = ["liSBon", "ROME", "miLan", "Dublin"];
+const standardizeStrings = (arr) => {
+    arr.forEach(item => console.log(item.toLowerCase()));
+};
+// standardizeStrings(favoriteCities);
+
+//? Задачи на работу с массивами, часть 2
+const someString = "Дракула"; //This is some strange string
+const reverse = (str) => {
+    if (typeof str !== "string") {
+        return "Ошибка!";
+    } else {
+        let newStr = "";
+        let oldStrCounter = str.length - 1;
+        for (let i = 0; i < str.length; i++) {
+            newStr += str[oldStrCounter];
+            oldStrCounter--;
+        }
+        return newStr;
+        // return str.split("").reverse().join("");
+    }
+};
+// console.log(reverse(someString));
+
+const baseCurrencies = [];//"USD", "EUR",
+const additionalCurrencies = [];//"UAN", "RUB", "CNY"
+const availableCurr = (arr, missingCurr) => {
+    if (arr.length === 0) {
+        return "Нет доступных валют";
+    } else {
+        let str = "Доступные валюты:\n";
+        for (let item of arr) {
+            if (item !== missingCurr) {
+                str += item + "\n";
+            }
+        }
+        return str;
+    }
+};
+// console.log(availableCurr([...baseCurrencies, ...additionalCurrencies], "CNY"));
+
+
+//? 36. Основы ООП, прототипно-ориентированное наследование
+// let str = "some";
+// let strObj = new String(str);
+// console.log(typeof strObj);
+
+// console.dir([1, 2, 3]);
+
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: () => {
+//         console.log("Hello");
+//     }
+// };
+
+// const john = {
+//     health: 100
+// };
+//* __proto__
+// john.__proto__ = soldier;
+// console.log(john.armor);
+// john.sayHello();
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: () => {
+        console.log("Hello");
+    }
+};
+
+const john = Object.create(soldier, {
+    weapons: {
+        knife: true,
+        "AK-47": true,
+        RPG: false,
+    }
+});
+console.log(john.weapons);
+
+// const john = {
+//     health: 100
+// };
+
+// Object.setPrototypeOf(john, soldier);
+// john.sayHello();
