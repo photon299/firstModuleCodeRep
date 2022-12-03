@@ -422,99 +422,99 @@
 //* (*) Продвинутые задания на использование функций
 // V = a*a*a
 // SA = 6а2
-const calculateVolumeAndArea = (a) => {
-    if (a % 1 === 0 && typeof a == "number" && a > 0) {
-        console.log(`Объем куба: ${a * a * a}, площадь всей поверхности: ${6 * (a * a)}`);
-    } else {
-        console.log("При вычислении произошла ошибка");
-    }
-};
+// const calculateVolumeAndArea = (a) => {
+//     if (a % 1 === 0 && typeof a == "number" && a > 0) {
+//         console.log(`Объем куба: ${a * a * a}, площадь всей поверхности: ${6 * (a * a)}`);
+//     } else {
+//         console.log("При вычислении произошла ошибка");
+//     }
+// };
 // calculateVolumeAndArea();
 
-const getCoupeNumber = (num) => {
-    if (typeof num !== "number" || num < 0 || num % 1 !== 0) {
-        console.log("Ошибка. Проверьте правильность введенного номера места");
-    } else if (num === 0 || num > 36) {
-        console.log("Таких мест в вагоне не существует");
-    } else {
-        const arr = [
-            [1, 2, 3, 4],
-            [5, 6, 7, 8],
-            [9, 10, 11, 12],
-            [13, 14, 15, 16],
-            [17, 18, 19, 20],
-            [21, 22, 23, 24],
-            [25, 26, 27, 28],
-            [29, 30, 31, 32],
-            [33, 34, 35, 36],
-        ];
-        for (let i = 0; i < 9; i++) {
-            for (let j = 0; j < 4; j++) {
-                if (arr[i][j] === num) {
-                    console.log(i + 1);
-                    break;
-                }
-            }
-        }
-    }
-};
+// const getCoupeNumber = (num) => {
+//     if (typeof num !== "number" || num < 0 || num % 1 !== 0) {
+//         console.log("Ошибка. Проверьте правильность введенного номера места");
+//     } else if (num === 0 || num > 36) {
+//         console.log("Таких мест в вагоне не существует");
+//     } else {
+//         const arr = [
+//             [1, 2, 3, 4],
+//             [5, 6, 7, 8],
+//             [9, 10, 11, 12],
+//             [13, 14, 15, 16],
+//             [17, 18, 19, 20],
+//             [21, 22, 23, 24],
+//             [25, 26, 27, 28],
+//             [29, 30, 31, 32],
+//             [33, 34, 35, 36],
+//         ];
+//         for (let i = 0; i < 9; i++) {
+//             for (let j = 0; j < 4; j++) {
+//                 if (arr[i][j] === num) {
+//                     console.log(i + 1);
+//                     break;
+//                 }
+//             }
+//         }
+//     }
+// };
 // getCoupeNumber("dd");
 
-const getTimeFromMinutes = (min) => {
-    if (typeof min !== "number" || min % 1 !== 0 || min < 0) {
-        console.log("Ошибка, проверьте данные");
-    } else  {
-        let hours = parseInt(min / 60);
-        let minutes = min % 60;
-        if (hours === 0 && minutes === 0) {
-            return "Это 0 часов и 0 минут";
-        } else if (hours === 1) {
-            return `Это ${hours} час и ${minutes} минут`;
-        } else if (hours <= 4) {
-            return `Это ${hours} часа и ${minutes} минут`;
-        } else if (hours <= 10) {
-            return `Это ${hours} часов и ${minutes} минут`;
-        }
-    }
-};
+// const getTimeFromMinutes = (min) => {
+//     if (typeof min !== "number" || min % 1 !== 0 || min < 0) {
+//         console.log("Ошибка, проверьте данные");
+//     } else  {
+//         let hours = parseInt(min / 60);
+//         let minutes = min % 60;
+//         if (hours === 0 && minutes === 0) {
+//             return "Это 0 часов и 0 минут";
+//         } else if (hours === 1) {
+//             return `Это ${hours} час и ${minutes} минут`;
+//         } else if (hours <= 4) {
+//             return `Это ${hours} часа и ${minutes} минут`;
+//         } else if (hours <= 10) {
+//             return `Это ${hours} часов и ${minutes} минут`;
+//         }
+//     }
+// };
 // console.log(getTimeFromMinutes(6));
 
-const findMaxNumber = (a, b, c, d) => {
-    const arr = [a, b, c, d];
-    let max = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] !== "number") {
-            return 0;
-        } else if (max < arr[i]) {
-            max = arr[i];
-        }
-    }
-    return max;
-};
+// const findMaxNumber = (a, b, c, d) => {
+//     const arr = [a, b, c, d];
+//     let max = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (typeof arr[i] !== "number") {
+//             return 0;
+//         } else if (max < arr[i]) {
+//             max = arr[i];
+//         }
+//     }
+//     return max;
+// };
 // console.log(findMaxNumber(44, 2, 313, 4.6));
 
 
 //? (**) Задача с собеседований на числа Фибоначчи
-const fib = (num) => {
-    if (typeof num !== "number" || num % 1 !== 0 || num < 0 || num === 0) {
-        return "";
-    } else if (num === 1) {
-        return "0";
-    } else {
-        let a = 0;
-        let b = 1;
-        let nextNum;
-        let result = "0 1"; 
-        for (let i = 0; i < num - 2; i++) {
-            nextNum = a + b;
-            result += ` ${nextNum}`;
-            a = b;
-            b = nextNum;
-        }
-        return result;
-    }
-};
-// console.log(fib(7));
+// const fib = (num) => {
+//     if (typeof num !== "number" || num % 1 !== 0 || num < 0 || num === 0) {
+//         return "";
+//     } else if (num === 1) {
+//         return "0";
+//     } else {
+//         let a = 0;
+//         let b = 1;
+//         let nextNum;
+//         let result = "0 1"; 
+//         for (let i = 0; i < num - 2; i++) {
+//             nextNum = a + b;
+//             result += ` ${nextNum}`;
+//             a = b;
+//             b = nextNum;
+//         }
+//         return result;
+//     }
+// };
+// console.log(fib(13));
 
 
 
@@ -713,87 +713,87 @@ const fib = (num) => {
 
 
 //? Задачи на работу с объектами
-const personalPlanPeter = {
-    name: "Peter",
-    age: "29",
-    skills: {
-        languages: ['ru', 'eng'],
-        programmingLangs: {
-            js: '20%',
-            php: '10%',
-            java: '50%',
-            "c++": '83%'
-        },
-        exp: '1 month'
-    },
-    showAgeAndLangs: (obj) => {
-        return `Мне ${obj.age} и я владею языками ${obj.skills.languages.join(" ").toUpperCase()}`;
-    },
-};
+// const personalPlanPeter = {
+//     name: "Peter",
+//     age: "29",
+//     skills: {
+//         languages: ['ru', 'eng'],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%',
+//             java: '50%',
+//             "c++": '83%'
+//         },
+//         exp: '1 month'
+//     },
+//     showAgeAndLangs: (obj) => {
+//         return `Мне ${obj.age} и я владею языками ${obj.skills.languages.join(" ").toUpperCase()}`;
+//     },
+// };
 // console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
-const showExperience = (plan) => {
-    const {exp} = plan.skills;
-    return exp;
-};
+// const showExperience = (plan) => {
+//     const {exp} = plan.skills;
+//     return exp;
+// };
 // console.log(showExperience(personalPlanPeter));
 
-const showProgrammingLangs = (plan) => {
-    const {programmingLangs} = plan.skills;
-    let result = "";
-    for (let key in programmingLangs) {
-        result += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
-    }
-    return result;
-};
+// const showProgrammingLangs = (plan) => {
+//     const {programmingLangs} = plan.skills;
+//     let result = "";
+//     for (let key in programmingLangs) {
+//         result += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+//     }
+//     return result;
+// };
 // console.log(showProgrammingLangs(personalPlanPeter));
 
 //? Задачи на работу с массивами
-const family = ["Peter", "Ann", "Alex", "Linda"];
-const showFamily = (arr) => {
-    return (arr.length === 0) ? "Семья пуста" : "Семья состоит из: " + arr.join(" ");
-};
+// const family = ["Peter", "Ann", "Alex", "Linda"];
+// const showFamily = (arr) => {
+//     return (arr.length === 0) ? "Семья пуста" : "Семья состоит из: " + arr.join(" ");
+// };
 // console.log(showFamily(family));
 
-const favoriteCities = ["liSBon", "ROME", "miLan", "Dublin"];
-const standardizeStrings = (arr) => {
-    arr.forEach(item => console.log(item.toLowerCase()));
-};
+// const favoriteCities = ["liSBon", "ROME", "miLan", "Dublin"];
+// const standardizeStrings = (arr) => {
+//     arr.forEach(item => console.log(item.toLowerCase()));
+// };
 // standardizeStrings(favoriteCities);
 
 //? Задачи на работу с массивами, часть 2
-const someString = "Дракула"; //This is some strange string
-const reverse = (str) => {
-    if (typeof str !== "string") {
-        return "Ошибка!";
-    } else {
-        let newStr = "";
-        let oldStrCounter = str.length - 1;
-        for (let i = 0; i < str.length; i++) {
-            newStr += str[oldStrCounter];
-            oldStrCounter--;
-        }
-        return newStr;
-        // return str.split("").reverse().join("");
-    }
-};
+// const someString = "Дракула"; //This is some strange string
+// const reverse = (str) => {
+//     if (typeof str !== "string") {
+//         return "Ошибка!";
+//     } else {
+//         let newStr = "";
+//         let oldStrCounter = str.length - 1;
+//         for (let i = 0; i < str.length; i++) {
+//             newStr += str[oldStrCounter];
+//             oldStrCounter--;
+//         }
+//         return newStr;
+//         // return str.split("").reverse().join("");
+//     }
+// };
 // console.log(reverse(someString));
 
-const baseCurrencies = [];//"USD", "EUR",
-const additionalCurrencies = [];//"UAN", "RUB", "CNY"
-const availableCurr = (arr, missingCurr) => {
-    if (arr.length === 0) {
-        return "Нет доступных валют";
-    } else {
-        let str = "Доступные валюты:\n";
-        for (let item of arr) {
-            if (item !== missingCurr) {
-                str += item + "\n";
-            }
-        }
-        return str;
-    }
-};
+// const baseCurrencies = [];//"USD", "EUR",
+// const additionalCurrencies = [];//"UAN", "RUB", "CNY"
+// const availableCurr = (arr, missingCurr) => {
+//     if (arr.length === 0) {
+//         return "Нет доступных валют";
+//     } else {
+//         let str = "Доступные валюты:\n";
+//         for (let item of arr) {
+//             if (item !== missingCurr) {
+//                 str += item + "\n";
+//             }
+//         }
+//         return str;
+//     }
+// };
 // console.log(availableCurr([...baseCurrencies, ...additionalCurrencies], "CNY"));
 
 
@@ -846,37 +846,89 @@ const availableCurr = (arr, missingCurr) => {
 
 
 //? Продвинутая задача на работу с объектами и массивами
-const shoppingMallData = {
-    shops: [
-        {
-            width: 10,
-            length: 5,
-        },
-        {
-            width: 15,
-            length: 7,
-        },
-        {
-            width: 8,
-            length: 10,
-        },
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000,
-};
+// const shoppingMallData = {
+//     shops: [
+//         {
+//             width: 10,
+//             length: 5,
+//         },
+//         {
+//             width: 15,
+//             length: 7,
+//         },
+//         {
+//             width: 8,
+//             length: 10,
+//         },
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000,
+// };
 
-const isBudgetEnough = (data) => {
-    let totalArea = 0;
-    for (let item of data.shops) {
-        let keysArr = Object.keys(item);
-        for(let i = 0; i < keysArr.length; i++) {
-            totalArea += item[`${keysArr[i]}`] * item[`${keysArr[i + 1]}`];
-            i++;
-        }
-    }
-    //                 totalVolume 
-    let price = (totalArea * data.height) * data.moneyPer1m3; 
-    return (data.budget >= price) ? "Бюджета достаточно" : "Бюджета недостаточно";
-};
-console.log(isBudgetEnough(shoppingMallData));
+// const isBudgetEnough = (data) => {
+//     let totalArea = 0;
+//     for (let item of data.shops) {
+//         let keysArr = Object.keys(item);
+//         for(let i = 0; i < keysArr.length; i++) {
+//             totalArea += item[`${keysArr[i]}`] * item[`${keysArr[i + 1]}`];
+//             i++;
+//         }
+//     }
+//     //                 totalVolume 
+//     let price = (totalArea * data.height) * data.moneyPer1m3; 
+//     return (data.budget >= price) ? "Бюджета достаточно" : "Бюджета недостаточно";
+// };
+// console.log(isBudgetEnough(shoppingMallData));
+
+// const students = [
+//     "Peter", "Andrew", "Ann", "Mark", "Josh",
+//     "Sandra", "Cris", "Bernard", "Takesi", "Sam",
+// ];
+// const sortStudentsByGroups = (arr) => {
+//     arr.sort();
+//     const result = [],
+//           amm = Math.floor(arr.length / 3);
+//     for (let i = 0; i < amm; i++) {
+//         result[i] = arr.splice(0, 3);
+//     }
+//     result[result.length] = `Оставшиеся студенты: ${arr.length === 0 ? `-` : arr.join(", ")}`;
+//     return result;
+// };
+// console.log(sortStudentsByGroups(students));
+
+
+//? 38. Отлавливаем ошибки в своем коде при помощи консоли разработчика. Breakpoints
+// const hello = () => {
+//     console.log("Hello World");
+// };
+// hello();
+
+// const hi = () => {
+//     console.log("Say hi!");
+// };
+
+// hi();
+
+// const arr = [1, 14, 4, 30, 54],
+//       sorted = arr.sort((a, b) => a - b);
+// console.log(sorted);
+
+//? 39. Динамическая типизация в JS
+//* To String
+// const num = 5;
+// console.log("https://vk.com/catalog/" + num);
+
+// const fontSize = 26 + "px";
+//* To Number
+// console.log(typeof(+"5"));
+
+//* To Boolean
+// let switcher = null;
+// if (switcher) {
+//     console.log("Working...");
+// }
+// switcher = 1;
+// if (switcher) {
+//     console.log("Working...");
+// }
