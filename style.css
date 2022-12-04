@@ -1,0 +1,46 @@
+.box {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+}
+button {
+    margin-top: 10px;
+    width: 80px;
+    height: 30px;
+    color: white;
+    border-radius: 8px;
+    background-color: black;
+}
+.circle {
+    margin-top: 10px;
+    height: 80px;
+    width: 80px;
+    background-color: blue;
+    border-radius: 1000%;
+}
+.wrapper {
+    display: flex;
+}
+.heart {
+    margin-top: 10px;
+    position: relative; 
+    width: 100px; 
+    height: 90px; 
+}
+.heart:before, .heart:after { 
+    position: absolute; 
+    content: ""; 
+    left: 50px; 
+    top: 0; 
+    width: 50px; 
+    height: 80px; 
+    background: red; 
+    border-radius: 50px 50px 0 0; 
+    transform: rotate(-45deg); 
+    transform-origin: 0 100%; 
+}
+.heart:after { 
+    left: 0; 
+    transform: rotate(45deg); 
+    transform-origin :100% 100%; 
+}

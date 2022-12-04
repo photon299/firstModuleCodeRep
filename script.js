@@ -932,3 +932,134 @@
 // if (switcher) {
 //     console.log("Working...");
 // }
+
+
+//? 40. Замыкание и лексическое окружение
+// let number = 5; debugger;
+// const logNumber = () => {
+//     let number = 4; debugger;
+//     console.log(number);
+// };
+// number = 6;
+
+// logNumber(); debugger;
+
+// const createCounter = () => {
+//     let counter = 0;
+//     const myFunction = function() {
+//         counter += 1;
+//         return counter;
+//     };
+//     return myFunction;
+// };
+
+// const increment = createCounter();
+// const c1 = increment();
+// const c2 = increment();
+// const c3 = increment();
+
+
+// console.log(c1, c2, c3);
+
+
+//? 41. Задачи с собеседований на понимание основ
+// let x = 5;
+// console.log(x++);
+
+// console.log([] + false - null + true);
+
+// let y = 1;
+// let x = y = 2;
+// console.log(x);
+
+// console.log(typeof([] + 1 + 2));
+
+// console.log("1"[0]);
+
+// console.log(2 && 1 && null && 0 && undefined);
+
+// console.log((4 && 2));
+// console.log(!!(4 && 2));
+
+// console.log(null || 2 && 3 || 4);
+
+// let a = [1, 2, 3],
+//     b = [1, 2, 3];
+// console.log(a == b);
+
+// console.log(+"Infinity");
+
+// console.log("яжик" > "Ублоко");
+
+// console.log(0 || "" || 2 || undefined || true || false);
+
+
+//? Задания на поиск ошибок в коде
+// const restorantData = {
+//     menu: [
+//         {
+//             name: 'Salad Caesar',
+//             price: '14$'
+//         },
+//         {
+//             name: 'Pizza Diavola',
+//             price: '9$'
+//         },
+//         {
+//             name: 'Beefsteak',
+//             price: '17$'
+//         },
+//         {
+//             name: 'Napoleon',
+//             price: '7$'
+//         }
+//     ],
+//     waitors: [
+//         {name: 'Alice', age: 22}, {name: 'John', age: 24}
+//     ],
+//     averageLunchPrice: '20$',
+//     openNow: false
+// };
+
+// function isOpen(prop) {
+//     let answer = '';
+//     answer = prop ? 'Открыто' : 'Закрыто';
+//     return answer;
+// }
+// console.log(isOpen(restorantData.openNow));
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//     console.log(+fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1)));
+//     if (+fDish.price.slice(0, -1) + (+sDish.price.slice(0, -1)) < average.slice(0, -1)) {
+//         return 'Цена ниже средней';
+//     } else {
+//         return 'Цена выше средней';
+//     }
+// }
+// console.log(isAverageLunchPriceTrue(restorantData.menu[1], restorantData.menu[3], restorantData.averageLunchPrice));
+
+// function transferWaitors(data) {
+//     const copy = Object.assign({}, data);
+
+//     copy.waitors[2] = {name: 'Mike', age: 32};
+//     return copy;
+// }
+
+// transferWaitors(restorantData);
+
+
+//? 42. Получение элементов со страницы
+const box = document.getElementById("box");
+console.log(box);
+
+const buttons = document.getElementsByTagName("button");
+console.log(buttons[0]);
+
+const circles = document.getElementsByClassName("circle");
+console.log(circles);
+
+const hearts = document.querySelectorAll(".heart");
+hearts.forEach(item => console.log(item));
+
+const oneHeart = document.querySelector(".heart");
+console.log(oneHeart);
