@@ -1049,17 +1049,38 @@
 
 
 //? 42. Получение элементов со страницы
-const box = document.getElementById("box");
-console.log(box);
+//? 43. Действия с элементами на странице
+const box = document.getElementById("box"),
+      buttons = document.getElementsByTagName("button"),
+      circles = document.getElementsByClassName("circle"),
+      hearts = document.querySelectorAll(".heart"),
+      oneHeart = document.querySelector(".heart"),
+      wrapp = document.querySelector(".wrapper");
 
-const buttons = document.getElementsByTagName("button");
-console.log(buttons[0]);
+box.style.backgroundColor = "blue";
+box.style.width = "500px";
+let num = 150;
+box.style.cssText = `background-color: purple; width: ${150}px`;
 
-const circles = document.getElementsByClassName("circle");
-console.log(circles);
+buttons[1].style.borderRadius = "100%";
+circles[0].style.backgroundColor = "red";
 
-const hearts = document.querySelectorAll(".heart");
-hearts.forEach(item => console.log(item));
+// for (let i = 0; i < hearts.length; i++) {
+//     hearts[i].style.backgroundColor = "blue";
+// }
 
-const oneHeart = document.querySelector(".heart");
-console.log(oneHeart);
+hearts.forEach(item => item.style.backgroundColor = "blue");
+
+const div = document.createElement("div");
+div.classList.add("black");
+wrapp.prepend(div);
+
+// circles[0].remove();
+
+hearts[0].replaceWith(circles[0]);
+
+div.innerHTML = "<h1>Hello World!</h1>";
+div.insertAdjacentHTML(
+    "afterend",
+    "<h2>General Kenobi</h2>"
+);
