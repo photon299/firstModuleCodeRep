@@ -1050,37 +1050,219 @@
 
 //? 42. Получение элементов со страницы
 //? 43. Действия с элементами на странице
-const box = document.getElementById("box"),
-      buttons = document.getElementsByTagName("button"),
-      circles = document.getElementsByClassName("circle"),
-      hearts = document.querySelectorAll(".heart"),
-      oneHeart = document.querySelector(".heart"),
-      wrapp = document.querySelector(".wrapper");
+// const box = document.getElementById("box"),
+//       buttons = document.getElementsByTagName("button"),
+//       circles = document.getElementsByClassName("circle"),
+//       hearts = document.querySelectorAll(".heart"),
+//       oneHeart = document.querySelector(".heart"),
+//       wrapp = document.querySelector(".wrapper");
 
-box.style.backgroundColor = "blue";
-box.style.width = "500px";
-let num = 150;
-box.style.cssText = `background-color: purple; width: ${150}px`;
+// box.style.backgroundColor = "blue";
+// box.style.width = "500px";
+// let num = 150;
+// box.style.cssText = `background-color: purple; width: ${150}px`;
 
-buttons[1].style.borderRadius = "100%";
-circles[0].style.backgroundColor = "red";
+// buttons[1].style.borderRadius = "100%";
+// circles[0].style.backgroundColor = "red";
 
 // for (let i = 0; i < hearts.length; i++) {
 //     hearts[i].style.backgroundColor = "blue";
 // }
 
-hearts.forEach(item => item.style.backgroundColor = "blue");
+// hearts.forEach(item => item.style.backgroundColor = "blue");
 
-const div = document.createElement("div");
-div.classList.add("black");
-wrapp.prepend(div);
+// const div = document.createElement("div");
+// div.classList.add("black");
+// wrapp.prepend(div);
 
 // circles[0].remove();
 
-hearts[0].replaceWith(circles[0]);
+// hearts[0].replaceWith(circles[0]);
 
-div.innerHTML = "<h1>Hello World!</h1>";
-div.insertAdjacentHTML(
-    "afterend",
-    "<h2>General Kenobi</h2>"
-);
+// div.innerHTML = "<h1>Hello World!</h1>";
+// div.insertAdjacentHTML(
+//     "afterend",
+//     "<h2>General Kenobi</h2>"
+// );
+
+//? 45. События и их обработчики
+// const btn = document.querySelectorAll("button"),
+//       overlay = document.querySelector(".overlay"),
+//       link = document.querySelector("a");
+// const btn = document.querySelectorAll("button");
+// btn.addEventListener("click", () => {
+//     console.log("Яхаа баляяя");
+// });
+// btn.addEventListener("mouseenter", (event) => {
+//     event.target.remove();
+// });
+
+// btn.forEach(item => {
+//     item.addEventListener("click", () => {
+//         console.log("Яхаа баляяя");
+//     }, {once: true});
+// });
+
+// const deleteElement = (event) => {
+//     console.log(event.currentTarget);
+//     console.log(event.type);
+// };
+
+// btn.addEventListener("click", deleteElement);
+// overlay.addEventListener("click", deleteElement);
+
+// link.addEventListener("click", (event) => {
+//     event.preventDefault();
+// });
+
+//* Алгоритм поиска
+// const arrOne = [-34, 1, 42, 53, -4.03, 0, 4033, 12];
+// const linearSearch = (t, A) => {
+//     let n = A.length,
+//         i = 0;
+//     A[n] = t;
+//     while (A[i] !== t) { i++; }
+//     return (i < n) ? i : -1;
+// };
+// console.log(linearSearch(42, arrOne));
+
+//? 46. Навигация по DOM - элементам, data-атрибуты, преимущество for/of
+// console.log(document.head);
+// console.log(document.documentElement);
+// console.log(document.body.childNodes);
+// console.log(document.body.firstChild);
+// console.log(document.body.lastChild);
+
+// console.log(document.querySelector("#current").parentNode.parentNode);
+// console.log(document.querySelector("[data-current='3']").nextElementSibling);
+
+// for (let node of document.body.childNodes) {
+//     if (node.nodeName == "#text") {
+//         continue;
+//     }
+//     console.log(node);
+// }
+
+
+//? 47. Рекурсия
+// const pow = (x, n) => {
+//     let result = 1;
+
+//     for (let i = 0; i < n; i++) {
+//         result *= x;
+//     }
+//     return result;
+// };
+// console.log(pow(2, 4));
+
+// const pow = (x, n) => {
+//     if (n === 1) {
+//         return x;
+//     } else {
+//         return x * pow(x, n - 1);
+//     }
+// };
+// console.log(pow(2, 4));
+
+let students = {
+    js: [{
+        name: "Alex",
+        progress: 100,
+    }, {
+        name:"Ivan",
+        progress: 60,
+    }],
+    html: {
+        basic: [{
+            name: "Peter",
+            progress: 20,
+        }, {
+            name: "Ann",
+            progress: 18
+        }],
+        pro: [{
+            name: "Sam",
+            progress: 10
+        }]
+    },
+};
+
+//* Рекурсия
+// const getTotalProgressByRecursion = (data) => {
+//     if (Array.isArray(data)) {
+//         let total = 0;        
+//         for (let i = 0; i < data.length; i++) {
+//             total += data[i].progress;
+//         }
+//         return [total, data.length]; 
+//     } else {
+//         let total = [0, 0];
+//         for (let subData of Object.values(data)) {
+//             const subDataArray = getTotalProgressByRecursion(subData);
+//             total[0] +=subDataArray[0];
+//             total[1] +=subDataArray[1];
+//         }
+//         return total;
+//     }
+// };
+// const result = getTotalProgressByRecursion(students);
+// console.log(result[0]/result[1]);
+
+//* Итеративный метод
+// const getTotalProgressByIteration = (data) => {
+//     let total = 0;
+//     let students = 0;
+
+//     for (let course of Object.values(data)) {
+//         if (Array.isArray(course)) {
+//             students += course.length;
+//             for (let i = 0; i < course.length; i++) {
+//                 total += course[i].progress;
+//             }
+//         } else {
+//             for (let subCourse of Object.values(course)) {
+//                 students += subCourse.length;
+//                 for (let i = 0; i < subCourse.length; i++) {
+//                     total += subCourse[i].progress;
+//                 }
+//             }
+//         }
+//     }
+//     return total / students;
+// };
+
+// console.log(getTotalProgressByIteration(students));
+
+
+// const square = (n) => {
+//     return n * n;
+// };
+// const surfaceAreaCalculator = (radius) => {
+//     return 4 * 3.14 * square(radius);
+// };
+// console.log(surfaceAreaCalculator(6378.1));
+
+// const factorial = (n) => {
+//     return (n === 1) ? 1 : n * factorial(n - 1);
+// };
+// console.log(factorial(4));
+
+const fibonacciByIteration = (num) => {
+    const result = [0, 1];
+    for (let i = 2; i <= num; i++) {
+        const prevNum1 = result[i - 1];
+        const prevNum2 = result[i - 2];
+        result.push(prevNum1 + prevNum2);
+    }
+    return {first: result, second: result[num]};
+};
+const fibonacciByRecursion = (num) => {
+    let result = "";
+    if (num < 2) {
+        return num;
+    }
+    result += fibonacciByRecursion(num - 1) + fibonacciByRecursion(num - 2);
+    return result;
+};
+// console.log(fibonacciByIteration(5));
+console.log(fibonacciByRecursion(5));
