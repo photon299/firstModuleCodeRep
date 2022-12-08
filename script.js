@@ -501,17 +501,17 @@
 //     } else if (num === 1) {
 //         return "0";
 //     } else {
-//         let a = 0;
-//         let b = 1;
-//         let nextNum;
-//         let result = "0 1"; 
-//         for (let i = 0; i < num - 2; i++) {
-//             nextNum = a + b;
-//             result += ` ${nextNum}`;
-//             a = b;
-//             b = nextNum;
-//         }
-//         return result;
+        // let a = 0;
+        // let b = 1;
+        // let nextNum;
+        // let result = "0 1"; 
+        // for (let i = 0; i < num - 2; i++) {
+        //     nextNum = a + b;
+        //     result += ` ${nextNum}`;
+        //     a = b;
+        //     b = nextNum;
+        // }
+        // return result;
 //     }
 // };
 // console.log(fib(13));
@@ -1164,29 +1164,28 @@
 // };
 // console.log(pow(2, 4));
 
-let students = {
-    js: [{
-        name: "Alex",
-        progress: 100,
-    }, {
-        name:"Ivan",
-        progress: 60,
-    }],
-    html: {
-        basic: [{
-            name: "Peter",
-            progress: 20,
-        }, {
-            name: "Ann",
-            progress: 18
-        }],
-        pro: [{
-            name: "Sam",
-            progress: 10
-        }]
-    },
-};
-
+// let students = {
+//     js: [{
+//         name: "Alex",
+//         progress: 100,
+//     }, {
+//         name:"Ivan",
+//         progress: 60,
+//     }],
+//     html: {
+//         basic: [{
+//             name: "Peter",
+//             progress: 20,
+//         }, {
+//             name: "Ann",
+//             progress: 18
+//         }],
+//         pro: [{
+//             name: "Sam",
+//             progress: 10
+//         }]
+//     },
+// };
 //* Рекурсия
 // const getTotalProgressByRecursion = (data) => {
 //     if (Array.isArray(data)) {
@@ -1230,39 +1229,63 @@ let students = {
 //     }
 //     return total / students;
 // };
-
 // console.log(getTotalProgressByIteration(students));
 
 
-// const square = (n) => {
-//     return n * n;
+//? Задачи на Рекурсию
+//* Рассчитать сумму натуральных чисел до n
+// const addTo = (num) => {
+//     return (num === 0) ? num : num += addTo(num - 1);
 // };
-// const surfaceAreaCalculator = (radius) => {
-//     return 4 * 3.14 * square(radius);
+// console.log(addTo(5));
+//* Рассчитать факториал из n
+// const factorial = (num) => {
+//     return (num === 1) ? num : num *= factorial(num - 1);
 // };
-// console.log(surfaceAreaCalculator(6378.1));
-
-// const factorial = (n) => {
-//     return (n === 1) ? 1 : n * factorial(n - 1);
+// console.log(factorial(5));
+//* Рассчитать значение n в m степени
+// const pow = (n, m) => {
+//     return (m === 1) ? n : n *= pow(n, m - 1);
 // };
-// console.log(factorial(4));
-
-const fibonacciByIteration = (num) => {
-    const result = [0, 1];
-    for (let i = 2; i <= num; i++) {
-        const prevNum1 = result[i - 1];
-        const prevNum2 = result[i - 2];
-        result.push(prevNum1 + prevNum2);
+// console.log(pow(3, 3));
+//* Найти n-е число Фибоначчи
+// const fib = (num) => {
+//     let a = 0;
+//     let b = 1;
+//     let nextNum;
+//     let result = "0 1"; 
+//     for (let i = 0; i < num - 2; i++) {
+//         nextNum = a + b;
+//         result += ` ${nextNum}`;
+//         a = b;
+//         b = nextNum;
+//     }
+//     return result;
+// };
+// console.log(fib(11));
+//* Вывести n чисел Фибоначчи
+const arrFiter = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        arr.forEach((item, index, array) => {
+            if (arr[i] === item && i !== index) {
+                arr.splice(index, 1);
+            }
+        });
     }
-    return {first: result, second: result[num]};
+    arr.splice(1, 0, 1);
+    return arr;
 };
-const fibonacciByRecursion = (num) => {
-    let result = "";
-    if (num < 2) {
+let number = 0;
+const result = [];
+const fibonacci = (num) => {
+    if (num <= 1) {
+        result[num] = num;
+        return num;
+    } else {
+        num = fibonacci(num - 1) + fibonacci(num - 2);
+        result[result.length] = num;
         return num;
     }
-    result += fibonacciByRecursion(num - 1) + fibonacciByRecursion(num - 2);
-    return result;
 };
-// console.log(fibonacciByIteration(5));
-console.log(fibonacciByRecursion(5));
+fibonacci(5);
+console.log(arrFiter(result).join(" "));
