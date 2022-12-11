@@ -1,9 +1,9 @@
-/* .box {
+.box {
     width: 150px;
-    height: 150px;
+    height: 100px;
     background-color: red;
-} */
-button {
+}
+/* button {
     margin: 15px 15px 0 15px;
     width: 110px;
     height: 30px;
@@ -21,7 +21,7 @@ button {
 }
 .overlay button {
     margin-top: 0;
-}
+} */
 /* .circle {
     margin-top: 10px;
     height: 80px;

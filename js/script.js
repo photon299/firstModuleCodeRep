@@ -1264,28 +1264,73 @@
 // };
 // console.log(fib(11));
 //* Вывести n чисел Фибоначчи
-const arrFiter = (arr) => {
-    for (let i = 0; i < arr.length; i++) {
-        arr.forEach((item, index, array) => {
-            if (arr[i] === item && i !== index) {
-                arr.splice(index, 1);
-            }
-        });
-    }
-    arr.splice(1, 0, 1);
-    return arr;
+// const arrFiter = (arr) => {
+//     for (let i = 0; i < arr.length; i++) {
+//         arr.forEach((item, index, array) => {
+//             if (arr[i] === item && i !== index) {
+//                 arr.splice(index, 1);
+//             }
+//         });
+//     }
+//     arr.splice(1, 0, 1);
+//     return arr;
+// };
+// let number = 0;
+// const result = [];
+// const fibonacci = (num) => {
+//     if (num <= 1) {
+//         result[num] = num;
+//         return num;
+//     } else {
+//         num = fibonacci(num - 1) + fibonacci(num - 2);
+//         result[result.length] = num;
+//         return num;
+//     }
+// };
+// fibonacci(5);
+// console.log(arrFiter(result).join(" "));
+
+
+//? 49. События на мобильных устройствах
+//* touchstart
+//* touchmove
+//* touchend
+//* touchenter
+//* touchleave
+//* touchcancel
+
+//* event.
+//* touches
+//* targetTouches
+//* changedTouches
+
+// window.addEventListener("DOMContentLoaded", () => {
+//     const box = document.querySelector(".box");
+//     box.addEventListener("touchstart", (event) => {
+//         event.preventDefault();
+//         console.log("Start");
+//         console.log(event.touches);
+//     });
+//     box.addEventListener("touchmove", (event) => {
+//         event.preventDefault();
+//         console.log(event.targetTouches[0].pageX);
+//     });
+//     box.addEventListener("touchend", (event) => {
+//         event.preventDefault();
+//         console.log("End");
+//     });
+// });
+
+
+//? 50. Async, defer, динамические скрипты
+const p = document.querySelectorAll("p");
+console.log(p);
+
+const loadScript = (src) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = false;
+    document.body.append(script);
 };
-let number = 0;
-const result = [];
-const fibonacci = (num) => {
-    if (num <= 1) {
-        result[num] = num;
-        return num;
-    } else {
-        num = fibonacci(num - 1) + fibonacci(num - 2);
-        result[result.length] = num;
-        return num;
-    }
-};
-fibonacci(5);
-console.log(arrFiter(result).join(" "));
+loadScript("js/test.js");
+loadScript("js/some.js");
